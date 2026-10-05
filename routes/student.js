@@ -3,12 +3,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/student', (req, res) => {
-
   res.json({
-    name: 'Juhar Rafid',
-    studentId: 's225654261'
+    name: 'Yousuf Sinha',
+    studentId: 's226032987'
   });
-
 });
 
 module.exports = router;
