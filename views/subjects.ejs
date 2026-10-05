@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>
+    Study Buddy AI - Subjects
+  </title>
+
+</head>
+
+
+<body>
+
+<h1>Study Buddy AI</h1>
+
+<p>
+  Logged in as:
+  <strong><%= user ? user.email : '' %></strong>
+</p>
+
+<a href="/logout">
+  Logout
+</a>
+
+
+<hr>
+
+
+<h2>Add Subject</h2>
+
+<form method="POST" action="/subjects">
+
+  <input
+    type="text"
+    name="name"
+    placeholder="Subject name"
+    required
+  >
+
+  <button type="submit">
+    Add Subject
+  </button>
+
+</form>
+
+
+<hr>
+
+
+<h2>Your Subjects</h2>
+
+
+<% if (subjects.length === 0) { %>
+
+  <p>
+    You haven't added any subjects yet.
+  </p>
+
+<% } %>
+
+
+<% subjects.forEach(subject => { %>
+
+  <section>
+
+    <h3>
+      <%= subject.name %>
+    </h3>
+
+
+    <h4>
+      Tasks
+    </h4>
+
+
+    <% const subjectTasks =
+         tasksBySubject[subject._id.toString()] || [];
+    %>
+
+
+    <% if (subjectTasks.length === 0) { %>
+
+      <p>
+        No tasks yet.
+      </p>
+
+    <% } %>
+
+
+    <ul>
+
+      <% subjectTasks.forEach(task => { %>
+
+        <li>
+
+          <strong>
+            <%= task.description %>
+          </strong>
+
+          -
+
+          Deadline:
+
+          <%= new Date(task.deadline)
+              .toLocaleDateString() %>
+
+          <% if (task.effortEstimate !== undefined) { %>
+
+            -
+
+            Effort:
+
+            <%= task.effortEstimate %>
+            hour(s)
+
+          <% } %>
+
+          -
+
+          Status:
+
+          <%= task.status %>
+
+        </li>
+
+      <% }) %>
+
+    </ul>
+
+
+    <h4>
+      Add Task
+    </h4>
+
+
+    <form
+      method="POST"
+      action="/subjects/<%= subject._id %>/tasks"
+    >
+
+      <input
+        type="text"
+        name="description"
+        placeholder="Task description"
+        required
+      >
+
+
+      <input
+        type="date"
+        name="deadline"
+        required
+      >
+
+
+      <input
+        type="number"
+        name="effortEstimate"
+        min="0"
+        placeholder="Effort in hours"
+      >
+
+
+      <button type="submit">
+        Add Task
+      </button>
+
+    </form>
+
+  </section>
+
+  <hr>
+
+<% }) %>
+
+
+</body>
+
+</html>

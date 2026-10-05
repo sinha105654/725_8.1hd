@@ -1,0 +1,32 @@
+{
+  "name": "8.1hd",
+  "version": "1.0.0",
+  "description": "Dockerization 8.1HD",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuharRafid/8.1HD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JuharRafid/8.1HD/issues"
+  },
+  "homepage": "https://github.com/JuharRafid/8.1HD#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.9.5",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}

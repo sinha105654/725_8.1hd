@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - Study Buddy AI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+    body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f6f8; }
+    .card-panel { width: 350px; }
+  </style>
+</head>
+<body>
+  <div class="card-panel">
+    <h4 class="center-align">Login</h4>
+    <form method="POST" action="/login">
+      <div class="input-field">
+        <input type="email" id="email" name="email" required>
+        <label for="email">Email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" name="password" required>
+        <label for="password">Password</label>
+      </div>
+      <button type="submit" class="btn waves-effect waves-light teal darken-1" style="width:100%">Login</button>
+    </form>
+    <p class="center-align" style="margin-top:15px">
+      <a href="/register">Need an account? Register</a>
+    </p>
+  </div>
+</body>
+</html>
